@@ -9,8 +9,11 @@ import "react-mde/lib/styles/css/react-mde-all.css";
 
 export default function App() {
     const [notes, setNotes] = React.useState(
+        // if there are any notes" in local storage, parse the data and initialize state to this data. if there is nothing in local storage, initialize state to an empty array
         () => JSON.parse(localStorage.getItem("notes")) || []
     )
+
+    // state for setting the ID of the current Note
     const [currentNoteId, setCurrentNoteId] = React.useState(
         (notes[0] && notes[0].id) || ""
     )
